@@ -10,10 +10,10 @@ public class InsertionSort {
 		// Loop through the array of cards starting at index 1
 		for (int card = 1; card < cards.length; card++) {
 			
-			// Set the card at index 1 equal to the one to sort
+			// Save the current card that needs to be inserted into the sorted portion
 			int cardToSort = cards[card];
 			
-			// The card at index 0 is considered the sorted portion 
+			// The portion of the array from index 0 through sorted is already sorted
 			int sorted = card - 1;
 			
 			// Loop through to see if the sorted card is in the position
@@ -21,16 +21,17 @@ public class InsertionSort {
 			// of the card in the sorted position with the value of the card to sort
 			while (sorted >= 0 && cards[sorted] > cardToSort) {
 				
-				// Since the card value at index 1 is saved in cardToSort
-				// set both card values at index 0 and 1 equal to the sorted card value
+				// Since the card value of the card to sort is saved in cardToSort
+				// shift the larger sorted card one position to the right temporarily
+				// making both indexes the same value making room for smaller card to be inserted
 				cards[sorted + 1] = cards[sorted];
 				
-				// Decrement the position of card j one position back
+				// Decrement the position of the sorted card to move backward through the sorted portion
 				sorted = sorted - 1;
 			}
 			
 			// When the conditions in the while loop evaluate to false
-			// set the value of the position one ahead of j equal to the card to sort
+			// place cardToSort into the space created by shifting the larger cards
 			cards[sorted + 1] = cardToSort;
 		}
 	}
