@@ -45,7 +45,5 @@ public class InsertionSort {
 		
 		// Print the hand of sorted cards
 		System.out.println(Arrays.toString(cards));
-
 	}
-
 }
